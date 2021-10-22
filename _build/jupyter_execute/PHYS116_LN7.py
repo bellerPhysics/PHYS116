@@ -14,7 +14,7 @@ Let's use the complex Fourier series:
 # \begin{align*}
 #     f(x) &= \sum_{n=-\infty}^\infty c_n e^{2n\pi i x /L} \\
 #     c_n &= \frac{1}{L} \int_{-L/2}^{L/2} du f(u) e^{-2n\pi i u/L} \\
-#     \Rightarrow f(x) &= \frac{1}{L} \sum_{n=-\infty}^\infty \int_{-L/2}^{L/2}  du (f(u))^* e^{2n\pi i (x-u)/L}
+#     \Rightarrow f(x) &= \frac{1}{L} \sum_{n=-\infty}^\infty \int_{-L/2}^{L/2}  du f(u) e^{2n\pi i (x-u)/L}
 # \end{align*}
 
 # Let $\Delta q = 2\pi /L$. Then
@@ -34,19 +34,17 @@ Let's use the complex Fourier series:
 
 # As $L\rightarrow \infty$, $\Delta q = 2\pi /L \rightarrow 0$ and so the sum 
 # \begin{equation*} \sum_{n=-\infty}^\infty \Delta q (\dots\text{function of $q_n$}\dots) \end{equation*}
-# becomes 
+# becomes the integral
 
 # $$
 # \int_{-\infty}^\infty dq_n (\dots \text{function of $q_n$}\dots ) 
 # $$
 
-# We have no more need for $n$, so let's use $q$ in place of $q_n$. We'll also replace $+\pm L/2$ with $\pm \infty$.
+# We have no more need for $n$, so let's use $q$ in place of $q_n$. We'll also replace $\pm L/2$ with $\pm \infty$.
 
-# 
-# 
 # \begin{align*}
 #     f(x) &= \frac{1}{2\pi} \int_{-\infty}^\infty dq \int_{-\infty}^\infty du f(u) e^{iq(x-u)} \\
-#     &= \frac{1}{2\pi} \int_{-\infty}^\infty dq e^{iqx} \int_{-\infty}^\infty du e^{-iqu}
+#     &= \frac{1}{2\pi} \int_{-\infty}^\infty dq e^{iqx} \int_{-\infty}^\infty du f(u) e^{-iqu}
 # \end{align*}
 
 # Define
@@ -55,7 +53,7 @@ Let's use the complex Fourier series:
 # \tilde f(q) \equiv \frac{1}{2\pi} \int_{-\infty}^\infty du f(u) e^{-iqu}. 
 # $$ 
 # 
-# (We could use $u$ instead of $x$ here, since the variable being integrated over can have whatever name we like.)
+# (We could use $x$ instead of $u$ here, since the variable being integrated over can have whatever name we like as long as it doesn't already appear in the equation.)
 # 
 # Then,
 # 
@@ -146,47 +144,26 @@ Let's use the complex Fourier series:
 
 # \begin{align*}
 # f(x) &= \cos(3x) \\
-# \tilde f(q) &= \frac{1}{2\pi}\int_{-\infty}^\infty dq \cos(3x) e^{-iqx} \\
-# &= \frac{1}{2\pi} \int_{-\infty}^\infty dq \cos(3x) (\cos(qx) - i \sin(qx)) 
+# \tilde f(q) &= \frac{1}{2\pi}\int_{-\infty}^\infty dx \cos(3x) e^{-iqx} \\
+# &= \frac{1}{2\pi} \int_{-\infty}^\infty dx \cos(3x) (\cos(qx) - i \sin(qx)) 
 # \end{align*}
 # 
-# 
-# The $i \sin(qx)$ term is odd and so contributes $0$ to the integral (since $\cos(3x)$ is even. That leaves    
-# 
-# 
+# The $i \sin(qx)$ term is odd and so contributes $0$ to the integral (since $\cos(3x)$ is even). 
+
+# That leaves    
 # 
 # \begin{align*}
-# \tilde f(q)    &= \frac{1}{2\pi} \int_{-\infty}^\infty dq \frac{e^{3x}+e^{-3x}}{2} 
-#         \frac{e^{qx} + e^{-qx}}{2} \\
-#         &= \frac{1}{8\pi} \int_{-\infty}^\infty dq
-#             \left[ e^{(3+q)x}+ e^{-(3+q)x} + e^{(3-q)x} + e^{-(3-q)x} \right]\\
-#         &= \frac{1}{4\pi} \int_{-\infty}^\infty dq \left[ \cos(3+q) + \cos(3-q) \right] 
+# \tilde f(q)    &= \frac{1}{2\pi} \int_{-\infty}^\infty dx \frac{e^{3ix}+e^{-3ix}}{2} 
+#         \frac{e^{iqx} + e^{-iqx}}{2} \\
+#         &= \frac{1}{8\pi} \int_{-\infty}^\infty dx
+#             \left[ e^{(3+q)ix}+ e^{-(3+q)ix} + e^{(3-q)ix} + e^{-(3-q)ix} \right]
 # \end{align*}
-# Let's be careful to not divide by zero. For $q \neq \pm 3$:
-# \begin{align*}
-#     \tilde f(q) &= \frac{1}{4\pi} \left[\frac{\sin(3+q)}{3+q} + \frac{\sin(3-q)}{3-q} \right]^\infty_{-\infty} \\
-#         &= 0 
-# \end{align*}
-# while for $q= \pm  3$:
-# \begin{align*}
-#     \tilde f(\pm 3) &= \frac{1}{2\pi} \int_{-\infty}^\infty \cos(3x) \cos(\pm 3x) \\
-#     &= \frac{1}{2\pi} \int_{-\infty}^\infty dx \cos^2 (3x) = \infty
-# \end{align*}
-# 
-# 
-# 
-# So $\tilde f(q)$ is zero for all $q$ except $q = \pm 3$, where $\tilde f(q)$ is infinite! We can write our answer as
-# 
-# $$ 
-# \tilde f(q) = \frac{1}{2} \left(\delta(q+3) + \delta (q-3)\right) 
-# $$
-# 
 
 # 
-# Here we have defined the ***Dirac delta function*** by
+# To evaluate this integral, we will need to introduce the ***Dirac delta function***, defined by
 # 
 # \begin{align*} 
-# \delta(u)& \equiv \begin{cases} 1 & u=0 \\ 0 & u\neq 0 \end{cases} \\
+# \delta(u)& \equiv \begin{cases} \infty & u=0 \\ 0 & u\neq 0 \end{cases} \\
 # \int_a^b du \delta(u)& = \begin{cases} 1 & a < 0 < b \\ 0 & \text{otherwise} \end{cases} 
 # \end{align*}
 # 
@@ -196,15 +173,48 @@ Let's use the complex Fourier series:
 # $$
 # \int_a^c du \delta(u-b) g(u) = \begin{cases} g(b) & a < b < c \\ 0 & \text{otherwise} \end{cases}
 # $$
+# 
+# Also, $\delta(u)$ is an even function of $u$. 
+
+# Now, it's easy to show that the inverse Fourier transform of $\delta(q)$ is simply 1:
+# 
+# $$
+# \int_{-\infty}^\infty dq \delta(q) e^{-iqx} = e^{-0ix} = 1.
+# $$
+# 
+# $\delta(q)$ is therefore an expression of the Fourier transform of the function 1:
+# 
+# $$
+#     \frac{1}{2\pi} \int_{-\infty}^\infty dq e^{iqx} = \delta(q) \\
+#     \Rightarrow \int_{-\infty}^\infty dq e^{iqx} = 2\pi \delta(q).
+# $$
+# 
+
+# Returning to our example, an integral like 
+# 
+# $$
+#  \int_{-\infty}^\infty dx e^{(3+q)ix}
+# $$
+# 
+# is equal to $2\pi$ times the Dirac delta function evaluated at $3+q$ instead of $q$. 
+# 
+# $$
+# \tilde f(q) = \frac{2\pi}{8\pi} \left[ \delta(3+q) +\delta(-3-q) +\delta(3-q) +\delta(-3+q) \right] 
+# $$
+# 
+# Using the evenness of $\delta(u)$:
+# 
+# $$
+# \tilde f(q) = \frac{1}{2} \left[ \delta(q+3) + \delta(q-3) \right] 
+# $$
+# 
 
 # We can recover the original function as
 # \begin{align*}
 #     f(x) &= \int_{-\infty}^\infty dq \tilde f(q) e^{-iqx} 
 #     = \frac{1}{2} \left[ \int_{-\infty}^\infty dq \delta(q+3) e^{-iqx} + \int_{-\infty}^\infty dq \delta(q-3)e^{-iqx}\right] \\
 #     &= \frac{1}{2} \left[ e^{-3ix} + e^{3ix} \right] = \cos(3x) \quad \checkmark
-# \end{align*}
-# Now you see why we needed the factor of $1/2$.
-#     
+# \end{align*}    
 # 
 
 # What does this example show us? The Fourier transform of a simple harmonic oscillation, with periodicity $L=2\pi/3$, is an infinite spike at $q=3=2\pi/L$, and zero everywhere else. 
@@ -224,14 +234,14 @@ Let's use the complex Fourier series:
 # For example, if $f(x) = \cos(3x) + 2 \cos(4 x)$ then
 # 
 # $$ 
-# \tilde f(q) = \frac{1}{2} \left[ \cos(q+3) + \cos(q-3) + 2 \cos(q+5) + 2\cos(q-5) \right]
+# \tilde f(q) = \frac{1}{2} \left[ \delta(q+3) + \delta(q-3) + 2 \delta(q+4) + 2\delta(q-4) \right]
 # $$
 
 # So, we can think of any function $\tilde f(x)$ as a linear combination of SHO functions $\cos(qx)$ and $\sin(qx)$—or equivalently, $e^{iqx}$ and $e^{-iqx}$. 
 # 
 # Now $q$ takes on the value of all real numbers, not just integers, so the linear combination *sum* becomes a linear combination *integral*: the inverse Fourier transform!
 # 
-# Meanwhile, the Fourier transform itself just takes the inner product of $f(x)$ with basis element $e^{iqx}$, that is, assigns to $\tilde f(q)$ the coefficient of $e^{iqx}$ when $f(x)$ is expanded in the $\{ e^{iqx} \}$ basis. 
+# Meanwhile, the Fourier transform itself just takes the inner product of $f(x)$ with basis element $e^{iqx}$, that is, assigns to $\tilde f(q)$ the coefficient of $e^{iqx}$ (what we used to call $c_n$ for Fourier series) when $f(x)$ is expanded in the $\{ e^{iqx} \}$ basis. 
 
 # We therefore speak of the space of $q$-values as "frequency-space" (for functions of time) or "wavenumber space" (for functions of position). More generally, we can refer to $q$-space as ***reciprocal space*** or ***Fourier space***.
 # 
@@ -264,41 +274,11 @@ Let's use the complex Fourier series:
 #         \int_{-\infty}^\infty dq' (\tilde f(q'))^* e^{+iq'x} \\
 #         &= \frac{1}{2\pi}  \int_{-\infty}^\infty dq \tilde f(q)
 #                 \int_{-\infty}^\infty dq' (\tilde f(q'))^* 
-#                 \int_{-\infty}^\infty dx e^{i(q'-q) x}
+#                 \int_{-\infty}^\infty dx e^{i(q'-q) x} \\
 # \end{align*}                                            
 
-# 
-# 
-# Now, $ \dfrac{1}{2\pi}   \int_{-\infty}^\infty dx e^{i(q'-q)x} $ is the Fourier transform of $g(x) = 1$, 
-# evaluated as $\tilde g(q'-q)$.
-#                        
-# \begin{align*}
-#     \tilde g(q) &= \frac{1}{2\pi} \int_{-\infty}^\infty dx e^{iqx} 
-#                        = \begin{cases}
-#                            \left.  \frac{1}{2\pi} \frac{e^{iqx}}{iq} \right|^\infty_{-\infty} = 0 &  q \neq 0 \\
-#                            \infty & q=0
-#                            \end{cases}
-# \end{align*}
-# 
-# Hey, it's another Dirac delta function! 
-#                       
-# $$
-# \tilde g(q) = \delta(q-0)=\delta(q)
-# $$ 
-# 
-# 
-# To check that we got the coefficient right:
-# \begin{align*}
-#     g(x) = \int_{-\infty}^\infty dq \tilde g(q) e^{-iqx} 
-#                        = \int_{-\infty}^\infty dq \delta(q-0) e^{-iqx}
-#                         = e^{-iq(0)} = 1 \quad \checkmark
-# \end{align*}
-#                        
-#                        
-# Therefore,
-# \begin{align*}
-#     \frac{1}{2\pi} \int_{-\infty}^\infty dx e^{i(q'-q)x} &= \tilde g(q'-q) = \delta(q'-q)
-# \end{align*}
+# Now, from our discussion above about the Dirac delta function, we know 
+# $ \dfrac{1}{2\pi}   \int_{-\infty}^\infty dx e^{i(q'-q)x} $ is just $\delta(q'-q)$.
 
 # 
 # Thus,
@@ -408,3 +388,8 @@ Let's use the complex Fourier series:
 # * Differentiation for $f(x)$ become multiplication by $(iq)$ in Fourier space.
 # 
 # * We have also introduced the very important Dirac delta function $\delta(u)$. 
+
+# $\vdots$  
+# $\vdots$   
+# $\vdots$  
+# $\vdots$  
