@@ -258,7 +258,7 @@
 \[\begin{align*}
     f(x) &amp;= \sum_{n=-\infty}^\infty c_n e^{2n\pi i x /L} \\
     c_n &amp;= \frac{1}{L} \int_{-L/2}^{L/2} du f(u) e^{-2n\pi i u/L} \\
-    \Rightarrow f(x) &amp;= \frac{1}{L} \sum_{n=-\infty}^\infty \int_{-L/2}^{L/2}  du (f(u))^* e^{2n\pi i (x-u)/L}
+    \Rightarrow f(x) &amp;= \frac{1}{L} \sum_{n=-\infty}^\infty \int_{-L/2}^{L/2}  du f(u) e^{2n\pi i (x-u)/L}
 \end{align*}\]</div>
 <p>Let <span class="math notranslate nohighlight">\(\Delta q = 2\pi /L\)</span>. Then</p>
 <div class="math notranslate nohighlight">
@@ -276,23 +276,23 @@ f(x) = \frac{1}{2\pi}  \sum_{n=-\infty}^\infty \Delta q
 <p>As <span class="math notranslate nohighlight">\(L\rightarrow \infty\)</span>, <span class="math notranslate nohighlight">\(\Delta q = 2\pi /L \rightarrow 0\)</span> and so the sum</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*} \sum_{n=-\infty}^\infty \Delta q (\dots\text{function of $q_n$}\dots) \end{equation*}\]</div>
-<p>becomes</p>
+<p>becomes the integral</p>
 <div class="math notranslate nohighlight">
 \[
 \int_{-\infty}^\infty dq_n (\dots \text{function of $q_n$}\dots ) 
 \]</div>
-<p>We have no more need for <span class="math notranslate nohighlight">\(n\)</span>, so let’s use <span class="math notranslate nohighlight">\(q\)</span> in place of <span class="math notranslate nohighlight">\(q_n\)</span>. We’ll also replace <span class="math notranslate nohighlight">\(+\pm L/2\)</span> with <span class="math notranslate nohighlight">\(\pm \infty\)</span>.</p>
+<p>We have no more need for <span class="math notranslate nohighlight">\(n\)</span>, so let’s use <span class="math notranslate nohighlight">\(q\)</span> in place of <span class="math notranslate nohighlight">\(q_n\)</span>. We’ll also replace <span class="math notranslate nohighlight">\(\pm L/2\)</span> with <span class="math notranslate nohighlight">\(\pm \infty\)</span>.</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
     f(x) &amp;= \frac{1}{2\pi} \int_{-\infty}^\infty dq \int_{-\infty}^\infty du f(u) e^{iq(x-u)} \\
-    &amp;= \frac{1}{2\pi} \int_{-\infty}^\infty dq e^{iqx} \int_{-\infty}^\infty du e^{-iqu}
+    &amp;= \frac{1}{2\pi} \int_{-\infty}^\infty dq e^{iqx} \int_{-\infty}^\infty du f(u) e^{-iqu}
 \end{align*}\]</div>
 <p>Define</p>
 <div class="math notranslate nohighlight">
 \[ 
 \tilde f(q) \equiv \frac{1}{2\pi} \int_{-\infty}^\infty du f(u) e^{-iqu}. 
 \]</div>
-<p>(We could use <span class="math notranslate nohighlight">\(u\)</span> instead of <span class="math notranslate nohighlight">\(x\)</span> here, since the variable being integrated over can have whatever name we like.)</p>
+<p>(We could use <span class="math notranslate nohighlight">\(x\)</span> instead of <span class="math notranslate nohighlight">\(u\)</span> here, since the variable being integrated over can have whatever name we like as long as it doesn’t already appear in the equation.)</p>
 <p>Then,</p>
 <div class="math notranslate nohighlight">
 \[
@@ -364,39 +364,22 @@ f(x) = \int_{-\infty}^\infty dq \frac{\sin(2q)}{\pi q} \cos(qx)
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 f(x) &amp;= \cos(3x) \\
-\tilde f(q) &amp;= \frac{1}{2\pi}\int_{-\infty}^\infty dq \cos(3x) e^{-iqx} \\
-&amp;= \frac{1}{2\pi} \int_{-\infty}^\infty dq \cos(3x) (\cos(qx) - i \sin(qx)) 
+\tilde f(q) &amp;= \frac{1}{2\pi}\int_{-\infty}^\infty dx \cos(3x) e^{-iqx} \\
+&amp;= \frac{1}{2\pi} \int_{-\infty}^\infty dx \cos(3x) (\cos(qx) - i \sin(qx)) 
 \end{align*}\]</div>
-<p>The <span class="math notranslate nohighlight">\(i \sin(qx)\)</span> term is odd and so contributes <span class="math notranslate nohighlight">\(0\)</span> to the integral (since <span class="math notranslate nohighlight">\(\cos(3x)\)</span> is even. That leaves</p>
+<p>The <span class="math notranslate nohighlight">\(i \sin(qx)\)</span> term is odd and so contributes <span class="math notranslate nohighlight">\(0\)</span> to the integral (since <span class="math notranslate nohighlight">\(\cos(3x)\)</span> is even).</p>
+<p>That leaves</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-\tilde f(q)    &amp;= \frac{1}{2\pi} \int_{-\infty}^\infty dq \frac{e^{3x}+e^{-3x}}{2} 
-        \frac{e^{qx} + e^{-qx}}{2} \\
-        &amp;= \frac{1}{8\pi} \int_{-\infty}^\infty dq
-            \left[ e^{(3+q)x}+ e^{-(3+q)x} + e^{(3-q)x} + e^{-(3-q)x} \right]\\
-        &amp;= \frac{1}{4\pi} \int_{-\infty}^\infty dq \left[ \cos(3+q) + \cos(3-q) \right] 
+\tilde f(q)    &amp;= \frac{1}{2\pi} \int_{-\infty}^\infty dx \frac{e^{3ix}+e^{-3ix}}{2} 
+        \frac{e^{iqx} + e^{-iqx}}{2} \\
+        &amp;= \frac{1}{8\pi} \int_{-\infty}^\infty dx
+            \left[ e^{(3+q)ix}+ e^{-(3+q)ix} + e^{(3-q)ix} + e^{-(3-q)ix} \right]
 \end{align*}\]</div>
-<p>Let’s be careful to not divide by zero. For <span class="math notranslate nohighlight">\(q \neq \pm 3\)</span>:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-    \tilde f(q) &amp;= \frac{1}{4\pi} \left[\frac{\sin(3+q)}{3+q} + \frac{\sin(3-q)}{3-q} \right]^\infty_{-\infty} \\
-        &amp;= 0 
-\end{align*}\]</div>
-<p>while for <span class="math notranslate nohighlight">\(q= \pm  3\)</span>:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-    \tilde f(\pm 3) &amp;= \frac{1}{2\pi} \int_{-\infty}^\infty \cos(3x) \cos(\pm 3x) \\
-    &amp;= \frac{1}{2\pi} \int_{-\infty}^\infty dx \cos^2 (3x) = \infty
-\end{align*}\]</div>
-<p>So <span class="math notranslate nohighlight">\(\tilde f(q)\)</span> is zero for all <span class="math notranslate nohighlight">\(q\)</span> except <span class="math notranslate nohighlight">\(q = \pm 3\)</span>, where <span class="math notranslate nohighlight">\(\tilde f(q)\)</span> is infinite! We can write our answer as</p>
-<div class="math notranslate nohighlight">
-\[ 
-\tilde f(q) = \frac{1}{2} \left(\delta(q+3) + \delta (q-3)\right) 
-\]</div>
-<p>Here we have defined the <em><strong>Dirac delta function</strong></em> by</p>
+<p>To evaluate this integral, we will need to introduce the <em><strong>Dirac delta function</strong></em>, defined by</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*} 
-\delta(u)&amp; \equiv \begin{cases} 1 &amp; u=0 \\ 0 &amp; u\neq 0 \end{cases} \\
+\delta(u)&amp; \equiv \begin{cases} \infty &amp; u=0 \\ 0 &amp; u\neq 0 \end{cases} \\
 \int_a^b du \delta(u)&amp; = \begin{cases} 1 &amp; a &lt; 0 &lt; b \\ 0 &amp; \text{otherwise} \end{cases} 
 \end{align*}\]</div>
 <p>It can be shown that a <span class="math notranslate nohighlight">\(\delta\)</span> function in an integral “picks out” the integrand’s value at the point where <span class="math notranslate nohighlight">\(\delta\)</span>’s argument is zero:</p>
@@ -404,6 +387,33 @@ f(x) &amp;= \cos(3x) \\
 \[\begin{split}
 \int_a^c du \delta(u-b) g(u) = \begin{cases} g(b) &amp; a &lt; b &lt; c \\ 0 &amp; \text{otherwise} \end{cases}
 \end{split}\]</div>
+<p>Also, <span class="math notranslate nohighlight">\(\delta(u)\)</span> is an even function of <span class="math notranslate nohighlight">\(u\)</span>.</p>
+<p>Now, it’s easy to show that the inverse Fourier transform of <span class="math notranslate nohighlight">\(\delta(q)\)</span> is simply 1:</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{-\infty}^\infty dq \delta(q) e^{-iqx} = e^{-0ix} = 1.
+\]</div>
+<p><span class="math notranslate nohighlight">\(\delta(q)\)</span> is therefore an expression of the Fourier transform of the function 1:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \frac{1}{2\pi} \int_{-\infty}^\infty dq e^{iqx} = \delta(q) \\
+    \Rightarrow \int_{-\infty}^\infty dq e^{iqx} = 2\pi \delta(q).
+\end{split}\]</div>
+<p>Returning to our example, an integral like</p>
+<div class="math notranslate nohighlight">
+\[
+ \int_{-\infty}^\infty dx e^{(3+q)ix}
+\]</div>
+<p>is equal to <span class="math notranslate nohighlight">\(2\pi\)</span> times the Dirac delta function evaluated at <span class="math notranslate nohighlight">\(3+q\)</span> instead of <span class="math notranslate nohighlight">\(q\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde f(q) = \frac{2\pi}{8\pi} \left[ \delta(3+q) +\delta(-3-q) +\delta(3-q) +\delta(-3+q) \right] 
+\]</div>
+<p>Using the evenness of <span class="math notranslate nohighlight">\(\delta(u)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde f(q) = \frac{1}{2} \left[ \delta(q+3) + \delta(q-3) \right] 
+\]</div>
 <p>We can recover the original function as</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -411,7 +421,6 @@ f(x) &amp;= \cos(3x) \\
     = \frac{1}{2} \left[ \int_{-\infty}^\infty dq \delta(q+3) e^{-iqx} + \int_{-\infty}^\infty dq \delta(q-3)e^{-iqx}\right] \\
     &amp;= \frac{1}{2} \left[ e^{-3ix} + e^{3ix} \right] = \cos(3x) \quad \checkmark
 \end{align*}\]</div>
-<p>Now you see why we needed the factor of <span class="math notranslate nohighlight">\(1/2\)</span>.</p>
 <p>What does this example show us? The Fourier transform of a simple harmonic oscillation, with periodicity <span class="math notranslate nohighlight">\(L=2\pi/3\)</span>, is an infinite spike at <span class="math notranslate nohighlight">\(q=3=2\pi/L\)</span>, and zero everywhere else.</p>
 <p>What about for more general <span class="math notranslate nohighlight">\(f(x)\)</span>? Note that the Fourier transform is <em>linear</em>:</p>
 <div class="amsmath math notranslate nohighlight">
@@ -426,11 +435,11 @@ f(x) &amp;= \cos(3x) \\
 <p>For example, if <span class="math notranslate nohighlight">\(f(x) = \cos(3x) + 2 \cos(4 x)\)</span> then</p>
 <div class="math notranslate nohighlight">
 \[ 
-\tilde f(q) = \frac{1}{2} \left[ \cos(q+3) + \cos(q-3) + 2 \cos(q+5) + 2\cos(q-5) \right]
+\tilde f(q) = \frac{1}{2} \left[ \delta(q+3) + \delta(q-3) + 2 \delta(q+4) + 2\delta(q-4) \right]
 \]</div>
 <p>So, we can think of any function <span class="math notranslate nohighlight">\(\tilde f(x)\)</span> as a linear combination of SHO functions <span class="math notranslate nohighlight">\(\cos(qx)\)</span> and <span class="math notranslate nohighlight">\(\sin(qx)\)</span>—or equivalently, <span class="math notranslate nohighlight">\(e^{iqx}\)</span> and <span class="math notranslate nohighlight">\(e^{-iqx}\)</span>.</p>
 <p>Now <span class="math notranslate nohighlight">\(q\)</span> takes on the value of all real numbers, not just integers, so the linear combination <em>sum</em> becomes a linear combination <em>integral</em>: the inverse Fourier transform!</p>
-<p>Meanwhile, the Fourier transform itself just takes the inner product of <span class="math notranslate nohighlight">\(f(x)\)</span> with basis element <span class="math notranslate nohighlight">\(e^{iqx}\)</span>, that is, assigns to <span class="math notranslate nohighlight">\(\tilde f(q)\)</span> the coefficient of <span class="math notranslate nohighlight">\(e^{iqx}\)</span> when <span class="math notranslate nohighlight">\(f(x)\)</span> is expanded in the <span class="math notranslate nohighlight">\(\{ e^{iqx} \}\)</span> basis.</p>
+<p>Meanwhile, the Fourier transform itself just takes the inner product of <span class="math notranslate nohighlight">\(f(x)\)</span> with basis element <span class="math notranslate nohighlight">\(e^{iqx}\)</span>, that is, assigns to <span class="math notranslate nohighlight">\(\tilde f(q)\)</span> the coefficient of <span class="math notranslate nohighlight">\(e^{iqx}\)</span> (what we used to call <span class="math notranslate nohighlight">\(c_n\)</span> for Fourier series) when <span class="math notranslate nohighlight">\(f(x)\)</span> is expanded in the <span class="math notranslate nohighlight">\(\{ e^{iqx} \}\)</span> basis.</p>
 <p>We therefore speak of the space of <span class="math notranslate nohighlight">\(q\)</span>-values as “frequency-space” (for functions of time) or “wavenumber space” (for functions of position). More generally, we can refer to <span class="math notranslate nohighlight">\(q\)</span>-space as <em><strong>reciprocal space</strong></em> or <em><strong>Fourier space</strong></em>.</p>
 </div>
 </div>
@@ -461,35 +470,10 @@ We can take the complex conjugate of</p>
         \int_{-\infty}^\infty dq' (\tilde f(q'))^* e^{+iq'x} \\
         &amp;= \frac{1}{2\pi}  \int_{-\infty}^\infty dq \tilde f(q)
                 \int_{-\infty}^\infty dq' (\tilde f(q'))^* 
-                \int_{-\infty}^\infty dx e^{i(q'-q) x}
+                \int_{-\infty}^\infty dx e^{i(q'-q) x} \\
 \end{align*}\]</div>
-<p>Now, <span class="math notranslate nohighlight">\( \dfrac{1}{2\pi}   \int_{-\infty}^\infty dx e^{i(q'-q)x} \)</span> is the Fourier transform of <span class="math notranslate nohighlight">\(g(x) = 1\)</span>,
-evaluated as <span class="math notranslate nohighlight">\(\tilde g(q'-q)\)</span>.</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-    \tilde g(q) &amp;= \frac{1}{2\pi} \int_{-\infty}^\infty dx e^{iqx} 
-                       = \begin{cases}
-                           \left.  \frac{1}{2\pi} \frac{e^{iqx}}{iq} \right|^\infty_{-\infty} = 0 &amp;  q \neq 0 \\
-                           \infty &amp; q=0
-                           \end{cases}
-\end{align*}\]</div>
-<p>Hey, it’s another Dirac delta function!</p>
-<div class="math notranslate nohighlight">
-\[
-\tilde g(q) = \delta(q-0)=\delta(q)
-\]</div>
-<p>To check that we got the coefficient right:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-    g(x) = \int_{-\infty}^\infty dq \tilde g(q) e^{-iqx} 
-                       = \int_{-\infty}^\infty dq \delta(q-0) e^{-iqx}
-                        = e^{-iq(0)} = 1 \quad \checkmark
-\end{align*}\]</div>
-<p>Therefore,</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-    \frac{1}{2\pi} \int_{-\infty}^\infty dx e^{i(q'-q)x} &amp;= \tilde g(q'-q) = \delta(q'-q)
-\end{align*}\]</div>
+<p>Now, from our discussion above about the Dirac delta function, we know
+<span class="math notranslate nohighlight">\( \dfrac{1}{2\pi}   \int_{-\infty}^\infty dx e^{i(q'-q)x} \)</span> is just <span class="math notranslate nohighlight">\(\delta(q'-q)\)</span>.</p>
 <p>Thus,</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
