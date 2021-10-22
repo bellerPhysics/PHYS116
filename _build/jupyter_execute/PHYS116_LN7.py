@@ -185,8 +185,8 @@ Let's use the complex Fourier series:
 # $\delta(q)$ is therefore an expression of the Fourier transform of the function 1:
 # 
 # $$
-#     \frac{1}{2\pi} \int_{-\infty}^\infty dq e^{iqx} = \delta(q) \\
-#     \Rightarrow \int_{-\infty}^\infty dq e^{iqx} = 2\pi \delta(q).
+#     \frac{1}{2\pi} \int_{-\infty}^\infty dx e^{iqx} = \delta(q) \\
+#     \Rightarrow \int_{-\infty}^\infty dx e^{iqx} = 2\pi \delta(q).
 # $$
 # 
 
