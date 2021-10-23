@@ -44,9 +44,9 @@ So by taking $L \rightarrow \infty$, we can accurately represent our arbitrary f
 
 Let's use the complex Fourier series:
 # \begin{align*}
-#     f(x) &= \sum_{n=-\infty}^\infty c_n e^{2n\pi i x /L} \\
-#     c_n &= \frac{1}{L} \int_{-L/2}^{L/2} du f(u) e^{-2n\pi i u/L} \\
-#     \Rightarrow f(x) &= \frac{1}{L} \sum_{n=-\infty}^\infty \int_{-L/2}^{L/2}  du f(u) e^{2n\pi i (x-u)/L}
+# f(x) &= \sum_{n=-\infty}^\infty c_n e^{2n\pi i x /L} \\
+# c_n &= \frac{1}{L} \int_{-L/2}^{L/2} du f(u) e^{-2n\pi i u/L} \\
+# \Rightarrow f(x) &= \frac{1}{L} \sum_{n=-\infty}^\infty \int_{-L/2}^{L/2}  du f(u) e^{2n\pi i (x-u)/L}
 # \end{align*}
 
 # Let $\Delta q = 2\pi /L$. Then
@@ -55,11 +55,7 @@ Let's use the complex Fourier series:
 # f(x) = \frac{\Delta q}{2\pi} \sum_{n=-\infty}^\infty \int_{-L/2}^{L/2} du f(u) e^{n \Delta q i(x-u)}         
 # $$
 
-# In[2]:
-
-
-get_ipython().run_cell_magic('latex', '', '\nNow, instead of summing over all integers $n$, we are going to divide the *real* number line into intervals of length $\\Delta q$. The $n$th interval is centered at')
-
+# Now, instead of summing over all integers $n$, we are going to divide the *real* number line into intervals of length $\Delta q$. The $n$th interval is centered at $q_n=n\Delta q$.
 
 # As $L\rightarrow \infty$, $\Delta q = 2\pi /L \rightarrow 0$ and so the sum 
 # 
