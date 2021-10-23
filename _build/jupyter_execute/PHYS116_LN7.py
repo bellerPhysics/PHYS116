@@ -8,15 +8,15 @@ from IPython.display import HTML
 style = """
 <style>
 div.important { 
-background-color: #fcf2f2;
+<!--background-color: #fcf2f2; -->
 border-color: #dFb5b4; 
-border-left: 5px solid #dfb5b4; 
+border-left: 5px solid red; 
 padding: 0.5em;
 }</style>
 
 <style>
 div.example { 
-background-color:  #e6ffe6;
+<!--background-color:  #e6ffe6; -->
 border-color: #dFb5b4; 
 border-left: 5px solid green; 
 padding: 0.5em;
@@ -24,7 +24,7 @@ padding: 0.5em;
 
 <style>
 div.sidenote { 
-background-color:  #e6ffff;
+<!--background-color:  #e6ffff; -->
 border-color: #dFb5b4; 
 border-left: 5px solid gray; 
 padding: 0.5em;
