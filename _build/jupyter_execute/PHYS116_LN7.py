@@ -52,20 +52,15 @@ Let's use the complex Fourier series:
 # Let $\Delta q = 2\pi /L$. Then
 
 # $$   
-# f(x) = \frac{\Delta q}{2\pi} \sum_{n=-\infty}^\infty 
-#         \int_{-L/2}^{L/2} du f(u) e^{n \Delta q i(x-u)}         
+# f(x) = \frac{\Delta q}{2\pi} \sum_{n=-\infty}^\infty \int_{-L/2}^{L/2} du f(u) e^{n \Delta q i(x-u)}         
 # $$
 
-# Now, instead of summing over all integers $n$, we are going to divide the *real* number line into intervals of length $\Delta q$. The $n$th interval is centered at
-# $ q_n \equiv n \Delta q$:
-
-# $$   
-# f(x) = \frac{1}{2\pi}  \sum_{n=-\infty}^\infty \Delta q 
-#         \int_{-L/2}^{L/2} du f(u) e^{q_n i (x-u)}
-# $$
+# Now, instead of summing over all integers $n$, we are going to divide the *real* number line into intervals of length $\Delta q$. The $n$th interval is centered at $q_n = n \Delta q$.
 
 # As $L\rightarrow \infty$, $\Delta q = 2\pi /L \rightarrow 0$ and so the sum 
+# 
 # \begin{equation*} \sum_{n=-\infty}^\infty \Delta q (\dots\text{function of $q_n$}\dots) \end{equation*}
+# 
 # becomes the integral
 
 # $$
@@ -471,8 +466,3 @@ Let's use the complex Fourier series:
 # * Differentiation for $f(x)$ become multiplication by $(iq)$ in Fourier space.
 # 
 # * We have also introduced the very important Dirac delta function $\delta(u)$. 
-
-# $\vdots$  
-# $\vdots$   
-# $\vdots$  
-# $\vdots$  
