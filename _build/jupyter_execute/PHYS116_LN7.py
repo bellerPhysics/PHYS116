@@ -1,6 +1,38 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[1]:
+
+
+from IPython.display import HTML
+style = """
+<style>
+div.important { 
+background-color: #fcf2f2;
+border-color: #dFb5b4; 
+border-left: 5px solid #dfb5b4; 
+padding: 0.5em;
+}</style>
+
+<style>
+div.example { 
+background-color:  #e6ffe6;
+border-color: #dFb5b4; 
+border-left: 5px solid green; 
+padding: 0.5em;
+}</style>
+
+<style>
+div.sidenote { 
+background-color:  #e6ffff;
+border-color: #dFb5b4; 
+border-left: 5px solid gray; 
+padding: 0.5em;
+}</style>
+"""
+HTML(style)
+
+
 # # LN7: Fourier transforms
 # 
 # ## From Fourier series to transforms
@@ -63,9 +95,8 @@ Let's use the complex Fourier series:
 
 # We have found
 
-# 
-# ```{important}
-# 
+# <div class="important"> 
+#     
 # \begin{align*}
 #         f(x) &= \int_{-\infty}^\infty dq \tilde f(q) e^{iqx} \\
 #         \tilde f(q) &\equiv \frac{1}{2\pi} \int_{-\infty}^\infty dx f(x) e^{-iqx} 
@@ -73,29 +104,38 @@ Let's use the complex Fourier series:
 # 
 # For any function $f$, $\tilde f$ is its ***Fourier transform***.
 # 
-# ```
-# 
+# </div>
 
-# ```{note}
+# <hr> 
+# <div class="sidenote">
+#     
+# <b> Note:  </b>
+# 
 # $f$ and $\tilde f$ are functions of different variables, $x$ and $q$ respectively. Since $iqx$ must be dimensionless, the units of $q$ must be the reciprocal of the units of $x$. For example,
 # 
 # * For a function of time $f(t)$, the Fourier transform is a function of frequency $\tilde f(\omega)$, where $\omega$ has units of (e.g.) $\mathrm{s}^{-1}=\mathrm{Hz}$.
 # 
 # * For a function of position $f(x)$, the Fourier transform is a function of ***wavenumber*** $q$, which has units of $1/\mathrm{length}$.
-# ```
+# 
+# </div>
 
-# ```{note}
-#         
+# <hr> 
+# <div class="sidenote">
+# 
+# <b> Note:</b>
+# 
 # "Fourier transform" can refer to the function $\tilde f(q)$ or to the act of taking $\frac{1}{2\pi}\int_{-\infty}^\infty dx f(x) e^{-iqx}$. Thus we might also "***take the inverse Fourier transform***" of any function:
 # 
 # $$ 
-# \int_{-\infty}^\infty dq \tilde g(q) e^{-iqx}. 
+# \int_{-\infty}^\infty dq \tilde g(q) e^{iqx}. 
 # $$    
-# ```
-
-# ### Example 1
-
 # 
+# </div>
+
+# ### Example 1 
+# 
+# <div class="example">
+#     
 # *Suppose our step function example from the Fourier Series section were not periodic, but instead*
 # 
 # $$ 
@@ -138,10 +178,15 @@ Let's use the complex Fourier series:
 # f(x) = \int_{-\infty}^\infty dq \frac{\sin(2q)}{\pi q} \cos(qx) 
 # $$
 # 
+# </div>
+
 # 
-
-# ### Example 2
-
+# ### Example 2 
+# 
+# <div class="example"> 
+# 
+# 
+#     
 # \begin{align*}
 # f(x) &= \cos(3x) \\
 # \tilde f(q) &= \frac{1}{2\pi}\int_{-\infty}^\infty dx \cos(3x) e^{-iqx} \\
@@ -149,7 +194,7 @@ Let's use the complex Fourier series:
 # \end{align*}
 # 
 # The $i \sin(qx)$ term is odd and so contributes $0$ to the integral (since $\cos(3x)$ is even). 
-
+# 
 # That leaves    
 # 
 # \begin{align*}
@@ -158,6 +203,8 @@ Let's use the complex Fourier series:
 #         &= \frac{1}{8\pi} \int_{-\infty}^\infty dx
 #             \left[ e^{(3+q)ix}+ e^{-(3+q)ix} + e^{(3-q)ix} + e^{-(3-q)ix} \right]
 # \end{align*}
+#     
+# </div>
 
 # 
 # To evaluate this integral, we will need to introduce the ***Dirac delta function***, defined by
@@ -179,17 +226,24 @@ Let's use the complex Fourier series:
 # Now, it's easy to show that the inverse Fourier transform of $\delta(q)$ is simply 1:
 # 
 # $$
-# \int_{-\infty}^\infty dq \delta(q) e^{-iqx} = e^{-0ix} = 1.
+# \int_{-\infty}^\infty dq \delta(q) e^{iqx} = e^{0ix} = 1.
 # $$
 # 
 # $\delta(q)$ is therefore an expression of the Fourier transform of the function 1:
 # 
 # $$
-#     \frac{1}{2\pi} \int_{-\infty}^\infty dx e^{iqx} = \delta(q) \\
-#     \Rightarrow \int_{-\infty}^\infty dx e^{iqx} = 2\pi \delta(q).
+#     \frac{1}{2\pi} \int_{-\infty}^\infty dx e^{-iqx} = \delta(q) \\
+#     \Rightarrow \int_{-\infty}^\infty dx e^{-iqx} = 2\pi \delta(q)
 # $$
 # 
+# and a substitution $x\rightarrow -x$ shows that also 
+# 
+# $$
+#     \int_{-\infty} ^\infty dx e^{iqx} = 2\pi \delta(q). 
+# $$
 
+# <div class="example"> 
+#     
 # Returning to our example, an integral like 
 # 
 # $$
@@ -208,14 +262,15 @@ Let's use the complex Fourier series:
 # \tilde f(q) = \frac{1}{2} \left[ \delta(q+3) + \delta(q-3) \right] 
 # $$
 # 
-
+#     
 # We can recover the original function as
 # \begin{align*}
-#     f(x) &= \int_{-\infty}^\infty dq \tilde f(q) e^{-iqx} 
-#     = \frac{1}{2} \left[ \int_{-\infty}^\infty dq \delta(q+3) e^{-iqx} + \int_{-\infty}^\infty dq \delta(q-3)e^{-iqx}\right] \\
-#     &= \frac{1}{2} \left[ e^{-3ix} + e^{3ix} \right] = \cos(3x) \quad \checkmark
+#     f(x) &= \int_{-\infty}^\infty dq \tilde f(q) e^{iqx} 
+#     = \frac{1}{2} \left[ \int_{-\infty}^\infty dq \delta(q+3) e^{iqx} + \int_{-\infty}^\infty dq \delta(q-3)e^{iqx}\right] \\
+#     &= \frac{1}{2} \left[ e^{3ix} + e^{-3ix} \right] = \cos(3x) \quad \checkmark
 # \end{align*}    
 # 
+# </div>
 
 # What does this example show us? The Fourier transform of a simple harmonic oscillation, with periodicity $L=2\pi/3$, is an infinite spike at $q=3=2\pi/L$, and zero everywhere else. 
 # 
@@ -225,23 +280,27 @@ Let's use the complex Fourier series:
 # \begin{align*}
 #     f(x) &= g(x) + c h(x) \\
 #     \tilde f(q) &= \frac{1}{2\pi} 
-#         \int_{-\infty}^\infty dq f(x) e^{iqx} 
-#     = \frac{1}{2\pi} \int_{-\infty}^\infty dq g(x) e^{iqx} 
-#         + c \int_{-\infty}^\infty dq h(x) e^{iqx}   \\
+#         \int_{-\infty}^\infty dq f(x) e^{-iqx} 
+#     = \frac{1}{2\pi} \int_{-\infty}^\infty dq g(x) e^{-iqx} 
+#         + c \int_{-\infty}^\infty dq h(x) e^{-iqx}   \\
 #     &= \tilde g(q) + c \tilde h(q) \quad \checkmark
 # \end{align*}
 
+# <div class="example"> 
+#     
 # For example, if $f(x) = \cos(3x) + 2 \cos(4 x)$ then
 # 
 # $$ 
 # \tilde f(q) = \frac{1}{2} \left[ \delta(q+3) + \delta(q-3) + 2 \delta(q+4) + 2\delta(q-4) \right]
 # $$
+#     
+# </div>
 
 # So, we can think of any function $\tilde f(x)$ as a linear combination of SHO functions $\cos(qx)$ and $\sin(qx)$—or equivalently, $e^{iqx}$ and $e^{-iqx}$. 
 # 
 # Now $q$ takes on the value of all real numbers, not just integers, so the linear combination *sum* becomes a linear combination *integral*: the inverse Fourier transform!
 # 
-# Meanwhile, the Fourier transform itself just takes the inner product of $f(x)$ with basis element $e^{iqx}$, that is, assigns to $\tilde f(q)$ the coefficient of $e^{iqx}$ (what we used to call $c_n$ for Fourier series) when $f(x)$ is expanded in the $\{ e^{iqx} \}$ basis. 
+# Meanwhile, the Fourier transform itself just takes the inner product of $f(x)$ with basis element $e^{-iqx}$, that is, assigns to $\tilde f(q)$ the coefficient of $e^{-iqx}$ (what we used to call $c_n$ for Fourier series) when $f(x)$ is expanded in the $\{ e^{-iqx} \}$ basis. 
 
 # We therefore speak of the space of $q$-values as "frequency-space" (for functions of time) or "wavenumber space" (for functions of position). More generally, we can refer to $q$-space as ***reciprocal space*** or ***Fourier space***.
 # 
@@ -261,40 +320,39 @@ Let's use the complex Fourier series:
 # First note that $|f(x)|^2 = f(x) (f(x))^*$. 
 # We can take the complex conjugate of
 # \begin{align*}
-#     f(x) &= \int_{-\infty}^\infty dq \tilde f(q) e^{-iqx} 
+#     f(x) &= \int_{-\infty}^\infty dq \tilde f(q) e^{iqx} 
 # \end{align*}
 # to obtain 
 # \begin{align*}
-#     (f(x))^* &= \int_{-\infty}^\infty dq (\tilde f(q))^* e^{+iqx} 
+#     (f(x))^* &= \int_{-\infty}^\infty dq (\tilde f(q))^* e^{-iqx} 
 # \end{align*}
 # So,
 # \begin{align*}
 #     \frac{1}{2\pi} \int_{-\infty}^\infty dx |f(x)|^2 &= 
-#         \frac{1}{2\pi}  \int_{-\infty}^\infty dx  \int_{-\infty}^\infty dq \tilde f(q) e^{-iqx} 
-#         \int_{-\infty}^\infty dq' (\tilde f(q'))^* e^{+iq'x} \\
+#         \frac{1}{2\pi}  \int_{-\infty}^\infty dx  \int_{-\infty}^\infty dq \tilde f(q) e^{iqx} 
+#         \int_{-\infty}^\infty dq' (\tilde f(q'))^* e^{-iq'x} \\
 #         &= \frac{1}{2\pi}  \int_{-\infty}^\infty dq \tilde f(q)
 #                 \int_{-\infty}^\infty dq' (\tilde f(q'))^* 
-#                 \int_{-\infty}^\infty dx e^{i(q'-q) x} \\
+#                 \int_{-\infty}^\infty dx e^{i(q-q') x} \\
 # \end{align*}                                            
 
 # Now, from our discussion above about the Dirac delta function, we know 
-# $ \dfrac{1}{2\pi}   \int_{-\infty}^\infty dx e^{i(q'-q)x} $ is just $\delta(q'-q)$.
+# $ \dfrac{1}{2\pi}   \int_{-\infty}^\infty dx e^{i(q-q')x} $ is just $\delta(q-q')$.
 
 # 
 # Thus,
 # \begin{align*}
 #     \frac{1}{2\pi} \int_{-\infty}^\infty dx |f(x)|^2 &= 
-#         \int_{-\infty}^\infty dq \tilde f(q) \int_{-\infty}^\infty dq' (\tilde f(q'))^* \delta(q'-q)\\      
+#         \int_{-\infty}^\infty dq \tilde f(q) \int_{-\infty}^\infty dq' (\tilde f(q'))^* \delta(q-q')\\      
 # \end{align*}
 # 
 
-# Now integrating over $q'$, the $\delta$ function "picks out" the value of $(\tilde f(q'))^*$ where $q'-q=0$, that is, $q'=q$:                                                                                                     
+# Now integrating over $q'$, the $\delta$ function "picks out" the value of $(\tilde f(q'))^*$ where $q-q'=0$, that is, $q'=q$:                                                                                                     
 
 # 
 # 
 # \begin{align*}
-#     \frac{1}{2\pi} \int_{-\infty}^\infty dx |f(x)|^2
-#         &= \int_{-\infty}^\infty dq \tilde f(q) (\tilde f(q))^* = \int_{-\infty}^\infty dq |\tilde f(q)|^2
+#     \frac{1}{2\pi} \int_{-\infty}^\infty dx |f(x)|^2         &= \int_{-\infty}^\infty dq \tilde f(q) (\tilde f(q))^* = \int_{-\infty}^\infty dq |\tilde f(q)|^2
 # \end{align*}
 # This is Parseval's Theorem for Fourier transforms. 
 
@@ -303,81 +361,106 @@ Let's use the complex Fourier series:
 # 
 # Suppose we know the Fourier transform $\tilde f(q)$ of $f(x)$. What is the Fourier transform of $h(x) = \dfrac{df}{dx}$?
 # 
+# Starting with the inverse Fourier transform,
+# 
 
 # \begin{align*}
-#     \tilde h(q) = \frac{1}{2\pi} \int_{-\infty}^\infty dx \dfrac{df}{dx} e^{iqx} = \frac{1}{2\pi} \left[ \int_{-\infty}^\infty dx \frac{d}{dx} \left(f(x) e^{iqx}\right) - \int_{-\infty}^\infty dx f(x) \frac{d}{dx} e^{iqx} \right]  \\
+#     h(x) &= \frac{df}{dx} = \frac{d}{dx} \int_{-\infty}^\infty dq \tilde f(q) e^{iqx} = \int_{-\infty}^\infty dq \tilde f(q) \frac{d}{dx} e^{iqx} \\
+#     &= \int_{-\infty}^\infty dq (iq \tilde f(q))e^{iqx} 
+# \end{align*}
+
+# we can see that $h(x)$ is the inverse Fourier transform of $(iq \tilde f(x))$, meaning $iq \tilde f(x)$ is the Fourier transform of $h(x)$: 
+# 
+# $$
+# \tilde h(x) = i q \tilde f(x) .
+# $$
+
+# Another approach:
+
+# \begin{align*}
+# \tilde h(q) & = \frac{1}{2\pi} \int_{-\infty}^\infty dx \dfrac{df}{dx} e^{-iqx} \\
+# &= \frac{1}{2\pi} \left[ \int_{-\infty}^\infty dx \frac{d}{dx} \left(f(x) e^{-iqx}\right) - \int_{-\infty}^\infty dx f(x) \frac{d}{dx} e^{-iqx} \right]  \\
 # \end{align*}
 # Let's assume $f(x) \rightarrow 0$ as $x\rightarrow \pm \infty$:
 # \begin{align*}
-#        \tilde h(q) &= \frac{1}{2\pi} \left[ {\left. f(x) e^{iqx} \right|^\infty_{-\infty}}  - iq \int_{-\infty}^\infty dx f(x) e^{iqx} \right] \\
-#        &= \frac{1}{2\pi} \left[ 0-0 - iq \int_{-\infty}^\infty dx f(x) e^{iqx} \right] \\
-#        &= - i q \tilde f(q)
+# \tilde h(q) &= \frac{1}{2\pi} \left[ {\left. f(x) e^{-iqx} \right|^\infty_{-\infty}}  - iq \int_{-\infty}^\infty dx f(x) e^{-iqx} \right] \\
+# &= \frac{1}{2\pi} \left[ 0-0 + iq \int_{-\infty}^\infty dx f(x) e^{iqx} \right] \\
+# &= i q \tilde f(q)
 # \end{align*}
 
-# ```{important}
+# <div class="important">
 # 
 # $$
-# h(x) = \dfrac{df}{dx} \Leftrightarrow \tilde h(q) = -iq \tilde f(q)
+# h(x) = \dfrac{df}{dx} \Leftrightarrow \tilde h(q) = iq \tilde f(q)
 # $$ 
 # 
-# Differentiation in position-space becomes multiplication by $-iq$ in Fourier space!
+# Differentiation in position-space becomes multiplication by $iq$ in Fourier space!
 # 
-# ```
+# </div>
 
 # We can iterate this result to get the Fourier transform of the $n$th derivative: Let $k(x) = dh/dx = d^2 f/dx^2$. Then
 # 
 
 # 
 # $$
-# \tilde k(q) = -iq \tilde h(q) = (-iq)^2 \tilde f(q) = -q^2 \tilde f(q)
+# \tilde k(q) = iq \tilde h(q) = (iq)^2 \tilde f(q) = -q^2 \tilde f(q)
 # $$
 # 
 # 
 
 # and more generally,
 
-# ```{important}
+# <div class="important">
+# 
 # $$
-# \text{ For $p(x) = d^n f/dx^n$, } \quad  \tilde p(q) = (-iq)^n \tilde f(q).
+# \text{ For $p(x) = d^n f/dx^n$, } \quad  \tilde p(q) = (iq)^n \tilde f(q).
 # $$
-# ```
+# 
+#     
+# </div>
 
 # This property can be very useful in solving differential equations "in Fourier space"... as long we can compute the inverse Fourier transform! 
 
 # ### Example 1
-
+# 
+# <div class="example">
+# 
+# 
+#     
 # *Solve the differential equation $\dfrac{d^2 f}{dx^2} = - 9 f$.*
 # 
 # Taking the Fourier transforms of both sides, and exploiting linearity:
-
-# 
-# 
+#     
 # \begin{align*}
 #     (-iq)^2 \tilde f(q) &= - 9 \tilde f(q) \\
 #     \Rightarrow (9-q^2)\tilde f(q) &= 0 
 # \end{align*}
-
-# Since this equation is true for *all* $q$, $\tilde f(q)$ must vanish everywhere except $q=\pm 3$. So (for general complex coefficients $a$ and $b$) the general solution satisfies
-
+#     
+# Since this equation is true for *all* $q$, $\tilde f(q)$ must vanish everywhere except $q=\pm 3$. So (for general complex coefficients $a$ and $b$) the general solution satisfies    
+#     
 # \begin{align*}
 # \tilde f(q) &= a \delta(q+3) + b \delta(q-3) \\
-#     \Rightarrow f(x) &= \int_{-\infty}^\infty dq \left(a \delta(q+3) + b\delta(q-3) \right) e^{-iqx} = a e^{3ix} + b e^{-3ix} \\
+# \Rightarrow f(x) &= \int_{-\infty}^\infty dq \left(a \delta(q+3) + b\delta(q-3) \right) e^{-iqx} = a e^{3ix} + b e^{-3ix} \\
 #     &= A \cos(3x) + i B \sin(3x)
 # \end{align*}
 # where $A=a+b$, $B=a-b$. 
+#     
+# </div>
 
-# ### Example 2
-
+# ### Example 2 
+# 
+# <div class="example">
 # 
 # \begin{align*}
 #     \frac{df}{dx} &= \cos(3x) \\
-#     \Rightarrow -iq \tilde f(q) &= \frac{1}{2} \left[ \delta(q+3) + \delta(q-3) \right] \\
-#     \Rightarrow \tilde f(q) &= - \frac{1}{2iq} \left[ \delta(q+3) + \delta(q-3) \right] \\
-#     \Rightarrow f(x) &= \int_{-\infty}^\infty dq \left(-\frac{1}{2iq} \left[\delta(q+3) + \delta(q-3) \right] \right) e^{-iqx} \\
-#     &= \left(-\frac{1}{2i} \right) \left[ \int_{-\infty}^\infty dq \frac{e^{-iqx}}{q} \delta(q+3) + \int_{-\infty}^\infty dq \frac{e^{-iqx}}{q} \delta(q-3) \right]  \\
-#     &= \left(-\frac{1}{2i} \right) \left[ \frac{e^{3ix}}{-3} + \frac{e^{-3ix}}{3} \right] = \frac{1}{3} \sin(3x) \quad \checkmark 
+#     \Rightarrow iq \tilde f(q) &= \frac{1}{2} \left[ \delta(q+3) + \delta(q-3) \right] \\
+#     \Rightarrow \tilde f(q) &=  \frac{1}{2iq} \left[ \delta(q+3) + \delta(q-3) \right] \\
+#     \Rightarrow f(x) &= \int_{-\infty}^\infty dq \left(\frac{1}{2iq} \left[\delta(q+3) + \delta(q-3) \right] \right) e^{iqx} \\
+#     &= \left(\frac{1}{2i} \right) \left[ \int_{-\infty}^\infty dq \frac{e^{iqx}}{q} \delta(q+3) + \int_{-\infty}^\infty dq \frac{e^{iqx}}{q} \delta(q-3) \right]  \\
+#     &= \left(\frac{1}{2i} \right) \left[ \frac{e^{-3ix}}{-3} + \frac{e^{3ix}}{3} \right] = \frac{1}{3} \sin(3x) \quad \checkmark 
 # \end{align*}
 # 
+# </div>
 
 # ## Summary
 # 
