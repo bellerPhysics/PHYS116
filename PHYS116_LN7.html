@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LN7: Fourier transforms &#8212; PHYS116 Mathematical Methods Fall 2021 Lecture Notes</title>
+    <title>PHYS116 Mathematical Methods Fall 2021 Lecture Notes</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -66,40 +66,8 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+<div class="col-12 col-md-2 bd-sidebar site-navigation show single-page" id="site-navigation">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
-      
-      <img src="_static/ucm_logo_lake_yosemite_blue.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">PHYS116 Mathematical Methods Fall 2021 Lecture Notes</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
-   LN7: Fourier transforms
-  </a>
- </li>
-</ul>
-    </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
 </div>
 
 
@@ -114,33 +82,7 @@
         <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
         <div class="col pl-md-4 topbar-main">
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
             
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/PHYS116_LN7.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
             <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
@@ -190,58 +132,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#from-fourier-series-to-transforms">
-   From Fourier series to transforms
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-1">
-     Example 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-2">
-     Example 2
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#parseval-s-theorem-for-the-fourier-transform">
-   Parseval’s Theorem for the Fourier transform
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fourier-transform-of-a-derivative">
-   Fourier transform of a derivative
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Example 1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Example 2
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -250,7 +140,66 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="ln7-fourier-transforms">
+  <div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">div.important { </span>
+<span class="s2">background-color: #fcf2f2;</span>
+<span class="s2">border-color: #dFb5b4; </span>
+<span class="s2">border-left: 5px solid #dfb5b4; </span>
+<span class="s2">padding: 0.5em;</span>
+<span class="s2">}&lt;/style&gt;</span>
+
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">div.example { </span>
+<span class="s2">background-color:  #e6ffe6;</span>
+<span class="s2">border-color: #dFb5b4; </span>
+<span class="s2">border-left: 5px solid green; </span>
+<span class="s2">padding: 0.5em;</span>
+<span class="s2">}&lt;/style&gt;</span>
+
+<span class="s2">&lt;style&gt;</span>
+<span class="s2">div.sidenote { </span>
+<span class="s2">background-color:  #e6ffff;</span>
+<span class="s2">border-color: #dFb5b4; </span>
+<span class="s2">border-left: 5px solid gray; </span>
+<span class="s2">padding: 0.5em;</span>
+<span class="s2">}&lt;/style&gt;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<style>
+div.important { 
+background-color: #fcf2f2;
+border-color: #dFb5b4; 
+border-left: 5px solid #dfb5b4; 
+padding: 0.5em;
+}</style>
+
+<style>
+div.example { 
+background-color:  #e6ffe6;
+border-color: #dFb5b4; 
+border-left: 5px solid green; 
+padding: 0.5em;
+}</style>
+
+<style>
+div.sidenote { 
+background-color:  #e6ffff;
+border-color: #dFb5b4; 
+border-left: 5px solid gray; 
+padding: 0.5em;
+}</style>
+</div></div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="ln7-fourier-transforms">
 <h1>LN7: Fourier transforms<a class="headerlink" href="#ln7-fourier-transforms" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="from-fourier-series-to-transforms">
 <h2>From Fourier series to transforms<a class="headerlink" href="#from-fourier-series-to-transforms" title="Permalink to this headline">¶</a></h2>
@@ -299,33 +248,32 @@ f(x) = \frac{1}{2\pi}  \sum_{n=-\infty}^\infty \Delta q
 f(x) = \int_{-\infty}^\infty dq \tilde f(q) e^{iqx} 
 \]</div>
 <p>We have found</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
+<div class="important"> 
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
         f(x) &amp;= \int_{-\infty}^\infty dq \tilde f(q) e^{iqx} \\
         \tilde f(q) &amp;\equiv \frac{1}{2\pi} \int_{-\infty}^\infty dx f(x) e^{-iqx} 
     \end{align*}\]</div>
 <p>For any function <span class="math notranslate nohighlight">\(f\)</span>, <span class="math notranslate nohighlight">\(\tilde f\)</span> is its <em><strong>Fourier transform</strong></em>.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+</div><hr> 
+<div class="sidenote">
+<p><b> Note:  </b></p>
 <p><span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(\tilde f\)</span> are functions of different variables, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(q\)</span> respectively. Since <span class="math notranslate nohighlight">\(iqx\)</span> must be dimensionless, the units of <span class="math notranslate nohighlight">\(q\)</span> must be the reciprocal of the units of <span class="math notranslate nohighlight">\(x\)</span>. For example,</p>
 <ul class="simple">
 <li><p>For a function of time <span class="math notranslate nohighlight">\(f(t)\)</span>, the Fourier transform is a function of frequency <span class="math notranslate nohighlight">\(\tilde f(\omega)\)</span>, where <span class="math notranslate nohighlight">\(\omega\)</span> has units of (e.g.) <span class="math notranslate nohighlight">\(\mathrm{s}^{-1}=\mathrm{Hz}\)</span>.</p></li>
 <li><p>For a function of position <span class="math notranslate nohighlight">\(f(x)\)</span>, the Fourier transform is a function of <em><strong>wavenumber</strong></em> <span class="math notranslate nohighlight">\(q\)</span>, which has units of <span class="math notranslate nohighlight">\(1/\mathrm{length}\)</span>.</p></li>
 </ul>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+</div><hr> 
+<div class="sidenote">
+<p><b> Note:</b></p>
 <p>“Fourier transform” can refer to the function <span class="math notranslate nohighlight">\(\tilde f(q)\)</span> or to the act of taking <span class="math notranslate nohighlight">\(\frac{1}{2\pi}\int_{-\infty}^\infty dx f(x) e^{-iqx}\)</span>. Thus we might also “<em><strong>take the inverse Fourier transform</strong></em>” of any function:</p>
 <div class="math notranslate nohighlight">
 \[ 
-\int_{-\infty}^\infty dq \tilde g(q) e^{-iqx}. 
+\int_{-\infty}^\infty dq \tilde g(q) e^{iqx}. 
 \]</div>
-</div>
-<div class="section" id="example-1">
+</div><div class="section" id="example-1">
 <h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
+<div class="example">
 <p><em>Suppose our step function example from the Fourier Series section were not periodic, but instead</em></p>
 <div class="math notranslate nohighlight">
 \[\begin{split} 
@@ -358,9 +306,10 @@ f(x) = \begin{cases} 1 &amp; -2 \leq x &lt; 2 \\
 \[
 f(x) = \int_{-\infty}^\infty dq \frac{\sin(2q)}{\pi q} \cos(qx) 
 \]</div>
-</div>
+</div></div>
 <div class="section" id="example-2">
 <h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
+<div class="example"> 
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 f(x) &amp;= \cos(3x) \\
@@ -376,7 +325,7 @@ f(x) &amp;= \cos(3x) \\
         &amp;= \frac{1}{8\pi} \int_{-\infty}^\infty dx
             \left[ e^{(3+q)ix}+ e^{-(3+q)ix} + e^{(3-q)ix} + e^{-(3-q)ix} \right]
 \end{align*}\]</div>
-<p>To evaluate this integral, we will need to introduce the <em><strong>Dirac delta function</strong></em>, defined by</p>
+</div><p>To evaluate this integral, we will need to introduce the <em><strong>Dirac delta function</strong></em>, defined by</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*} 
 \delta(u)&amp; \equiv \begin{cases} \infty &amp; u=0 \\ 0 &amp; u\neq 0 \end{cases} \\
@@ -391,14 +340,20 @@ f(x) &amp;= \cos(3x) \\
 <p>Now, it’s easy to show that the inverse Fourier transform of <span class="math notranslate nohighlight">\(\delta(q)\)</span> is simply 1:</p>
 <div class="math notranslate nohighlight">
 \[
-\int_{-\infty}^\infty dq \delta(q) e^{-iqx} = e^{-0ix} = 1.
+\int_{-\infty}^\infty dq \delta(q) e^{iqx} = e^{0ix} = 1.
 \]</div>
 <p><span class="math notranslate nohighlight">\(\delta(q)\)</span> is therefore an expression of the Fourier transform of the function 1:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-    \frac{1}{2\pi} \int_{-\infty}^\infty dx e^{iqx} = \delta(q) \\
-    \Rightarrow \int_{-\infty}^\infty dx e^{iqx} = 2\pi \delta(q).
+    \frac{1}{2\pi} \int_{-\infty}^\infty dx e^{-iqx} = \delta(q) \\
+    \Rightarrow \int_{-\infty}^\infty dx e^{-iqx} = 2\pi \delta(q)
 \end{split}\]</div>
+<p>and a substitution <span class="math notranslate nohighlight">\(x\rightarrow -x\)</span> shows that also</p>
+<div class="math notranslate nohighlight">
+\[
+    \int_{-\infty} ^\infty dx e^{iqx} = 2\pi \delta(q). 
+\]</div>
+<div class="example"> 
 <p>Returning to our example, an integral like</p>
 <div class="math notranslate nohighlight">
 \[
@@ -417,29 +372,30 @@ f(x) &amp;= \cos(3x) \\
 <p>We can recover the original function as</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-    f(x) &amp;= \int_{-\infty}^\infty dq \tilde f(q) e^{-iqx} 
-    = \frac{1}{2} \left[ \int_{-\infty}^\infty dq \delta(q+3) e^{-iqx} + \int_{-\infty}^\infty dq \delta(q-3)e^{-iqx}\right] \\
-    &amp;= \frac{1}{2} \left[ e^{-3ix} + e^{3ix} \right] = \cos(3x) \quad \checkmark
+    f(x) &amp;= \int_{-\infty}^\infty dq \tilde f(q) e^{iqx} 
+    = \frac{1}{2} \left[ \int_{-\infty}^\infty dq \delta(q+3) e^{iqx} + \int_{-\infty}^\infty dq \delta(q-3)e^{iqx}\right] \\
+    &amp;= \frac{1}{2} \left[ e^{3ix} + e^{-3ix} \right] = \cos(3x) \quad \checkmark
 \end{align*}\]</div>
-<p>What does this example show us? The Fourier transform of a simple harmonic oscillation, with periodicity <span class="math notranslate nohighlight">\(L=2\pi/3\)</span>, is an infinite spike at <span class="math notranslate nohighlight">\(q=3=2\pi/L\)</span>, and zero everywhere else.</p>
+</div><p>What does this example show us? The Fourier transform of a simple harmonic oscillation, with periodicity <span class="math notranslate nohighlight">\(L=2\pi/3\)</span>, is an infinite spike at <span class="math notranslate nohighlight">\(q=3=2\pi/L\)</span>, and zero everywhere else.</p>
 <p>What about for more general <span class="math notranslate nohighlight">\(f(x)\)</span>? Note that the Fourier transform is <em>linear</em>:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
     f(x) &amp;= g(x) + c h(x) \\
     \tilde f(q) &amp;= \frac{1}{2\pi} 
-        \int_{-\infty}^\infty dq f(x) e^{iqx} 
-    = \frac{1}{2\pi} \int_{-\infty}^\infty dq g(x) e^{iqx} 
-        + c \int_{-\infty}^\infty dq h(x) e^{iqx}   \\
+        \int_{-\infty}^\infty dq f(x) e^{-iqx} 
+    = \frac{1}{2\pi} \int_{-\infty}^\infty dq g(x) e^{-iqx} 
+        + c \int_{-\infty}^\infty dq h(x) e^{-iqx}   \\
     &amp;= \tilde g(q) + c \tilde h(q) \quad \checkmark
 \end{align*}\]</div>
+<div class="example"> 
 <p>For example, if <span class="math notranslate nohighlight">\(f(x) = \cos(3x) + 2 \cos(4 x)\)</span> then</p>
 <div class="math notranslate nohighlight">
 \[ 
 \tilde f(q) = \frac{1}{2} \left[ \delta(q+3) + \delta(q-3) + 2 \delta(q+4) + 2\delta(q-4) \right]
 \]</div>
-<p>So, we can think of any function <span class="math notranslate nohighlight">\(\tilde f(x)\)</span> as a linear combination of SHO functions <span class="math notranslate nohighlight">\(\cos(qx)\)</span> and <span class="math notranslate nohighlight">\(\sin(qx)\)</span>—or equivalently, <span class="math notranslate nohighlight">\(e^{iqx}\)</span> and <span class="math notranslate nohighlight">\(e^{-iqx}\)</span>.</p>
+</div><p>So, we can think of any function <span class="math notranslate nohighlight">\(\tilde f(x)\)</span> as a linear combination of SHO functions <span class="math notranslate nohighlight">\(\cos(qx)\)</span> and <span class="math notranslate nohighlight">\(\sin(qx)\)</span>—or equivalently, <span class="math notranslate nohighlight">\(e^{iqx}\)</span> and <span class="math notranslate nohighlight">\(e^{-iqx}\)</span>.</p>
 <p>Now <span class="math notranslate nohighlight">\(q\)</span> takes on the value of all real numbers, not just integers, so the linear combination <em>sum</em> becomes a linear combination <em>integral</em>: the inverse Fourier transform!</p>
-<p>Meanwhile, the Fourier transform itself just takes the inner product of <span class="math notranslate nohighlight">\(f(x)\)</span> with basis element <span class="math notranslate nohighlight">\(e^{iqx}\)</span>, that is, assigns to <span class="math notranslate nohighlight">\(\tilde f(q)\)</span> the coefficient of <span class="math notranslate nohighlight">\(e^{iqx}\)</span> (what we used to call <span class="math notranslate nohighlight">\(c_n\)</span> for Fourier series) when <span class="math notranslate nohighlight">\(f(x)\)</span> is expanded in the <span class="math notranslate nohighlight">\(\{ e^{iqx} \}\)</span> basis.</p>
+<p>Meanwhile, the Fourier transform itself just takes the inner product of <span class="math notranslate nohighlight">\(f(x)\)</span> with basis element <span class="math notranslate nohighlight">\(e^{-iqx}\)</span>, that is, assigns to <span class="math notranslate nohighlight">\(\tilde f(q)\)</span> the coefficient of <span class="math notranslate nohighlight">\(e^{-iqx}\)</span> (what we used to call <span class="math notranslate nohighlight">\(c_n\)</span> for Fourier series) when <span class="math notranslate nohighlight">\(f(x)\)</span> is expanded in the <span class="math notranslate nohighlight">\(\{ e^{-iqx} \}\)</span> basis.</p>
 <p>We therefore speak of the space of <span class="math notranslate nohighlight">\(q\)</span>-values as “frequency-space” (for functions of time) or “wavenumber space” (for functions of position). More generally, we can refer to <span class="math notranslate nohighlight">\(q\)</span>-space as <em><strong>reciprocal space</strong></em> or <em><strong>Fourier space</strong></em>.</p>
 </div>
 </div>
@@ -455,77 +411,86 @@ f(x) &amp;= \cos(3x) \\
 We can take the complex conjugate of</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-    f(x) &amp;= \int_{-\infty}^\infty dq \tilde f(q) e^{-iqx} 
+    f(x) &amp;= \int_{-\infty}^\infty dq \tilde f(q) e^{iqx} 
 \end{align*}\]</div>
 <p>to obtain</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-    (f(x))^* &amp;= \int_{-\infty}^\infty dq (\tilde f(q))^* e^{+iqx} 
+    (f(x))^* &amp;= \int_{-\infty}^\infty dq (\tilde f(q))^* e^{-iqx} 
 \end{align*}\]</div>
 <p>So,</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
     \frac{1}{2\pi} \int_{-\infty}^\infty dx |f(x)|^2 &amp;= 
-        \frac{1}{2\pi}  \int_{-\infty}^\infty dx  \int_{-\infty}^\infty dq \tilde f(q) e^{-iqx} 
-        \int_{-\infty}^\infty dq' (\tilde f(q'))^* e^{+iq'x} \\
+        \frac{1}{2\pi}  \int_{-\infty}^\infty dx  \int_{-\infty}^\infty dq \tilde f(q) e^{iqx} 
+        \int_{-\infty}^\infty dq' (\tilde f(q'))^* e^{-iq'x} \\
         &amp;= \frac{1}{2\pi}  \int_{-\infty}^\infty dq \tilde f(q)
                 \int_{-\infty}^\infty dq' (\tilde f(q'))^* 
-                \int_{-\infty}^\infty dx e^{i(q'-q) x} \\
+                \int_{-\infty}^\infty dx e^{i(q-q') x} \\
 \end{align*}\]</div>
 <p>Now, from our discussion above about the Dirac delta function, we know
-<span class="math notranslate nohighlight">\( \dfrac{1}{2\pi}   \int_{-\infty}^\infty dx e^{i(q'-q)x} \)</span> is just <span class="math notranslate nohighlight">\(\delta(q'-q)\)</span>.</p>
+<span class="math notranslate nohighlight">\( \dfrac{1}{2\pi}   \int_{-\infty}^\infty dx e^{i(q-q')x} \)</span> is just <span class="math notranslate nohighlight">\(\delta(q-q')\)</span>.</p>
 <p>Thus,</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
     \frac{1}{2\pi} \int_{-\infty}^\infty dx |f(x)|^2 &amp;= 
-        \int_{-\infty}^\infty dq \tilde f(q) \int_{-\infty}^\infty dq' (\tilde f(q'))^* \delta(q'-q)\\      
+        \int_{-\infty}^\infty dq \tilde f(q) \int_{-\infty}^\infty dq' (\tilde f(q'))^* \delta(q-q')\\      
 \end{align*}\]</div>
-<p>Now integrating over <span class="math notranslate nohighlight">\(q'\)</span>, the <span class="math notranslate nohighlight">\(\delta\)</span> function “picks out” the value of <span class="math notranslate nohighlight">\((\tilde f(q'))^*\)</span> where <span class="math notranslate nohighlight">\(q'-q=0\)</span>, that is, <span class="math notranslate nohighlight">\(q'=q\)</span>:</p>
+<p>Now integrating over <span class="math notranslate nohighlight">\(q'\)</span>, the <span class="math notranslate nohighlight">\(\delta\)</span> function “picks out” the value of <span class="math notranslate nohighlight">\((\tilde f(q'))^*\)</span> where <span class="math notranslate nohighlight">\(q-q'=0\)</span>, that is, <span class="math notranslate nohighlight">\(q'=q\)</span>:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-    \frac{1}{2\pi} \int_{-\infty}^\infty dx |f(x)|^2
-        &amp;= \int_{-\infty}^\infty dq \tilde f(q) (\tilde f(q))^* = \int_{-\infty}^\infty dq |\tilde f(q)|^2
+    \frac{1}{2\pi} \int_{-\infty}^\infty dx |f(x)|^2         &amp;= \int_{-\infty}^\infty dq \tilde f(q) (\tilde f(q))^* = \int_{-\infty}^\infty dq |\tilde f(q)|^2
 \end{align*}\]</div>
 <p>This is Parseval’s Theorem for Fourier transforms.</p>
 </div>
 <div class="section" id="fourier-transform-of-a-derivative">
 <h2>Fourier transform of a derivative<a class="headerlink" href="#fourier-transform-of-a-derivative" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we know the Fourier transform <span class="math notranslate nohighlight">\(\tilde f(q)\)</span> of <span class="math notranslate nohighlight">\(f(x)\)</span>. What is the Fourier transform of <span class="math notranslate nohighlight">\(h(x) = \dfrac{df}{dx}\)</span>?</p>
+<p>Starting with the inverse Fourier transform,</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-    \tilde h(q) = \frac{1}{2\pi} \int_{-\infty}^\infty dx \dfrac{df}{dx} e^{iqx} = \frac{1}{2\pi} \left[ \int_{-\infty}^\infty dx \frac{d}{dx} \left(f(x) e^{iqx}\right) - \int_{-\infty}^\infty dx f(x) \frac{d}{dx} e^{iqx} \right]  \\
+    h(x) &amp;= \frac{df}{dx} = \frac{d}{dx} \int_{-\infty}^\infty dq \tilde f(q) e^{iqx} = \int_{-\infty}^\infty dq \tilde f(q) \frac{d}{dx} e^{iqx} \\
+    &amp;= \int_{-\infty}^\infty dq (iq \tilde f(q))e^{iqx} 
+\end{align*}\]</div>
+<p>we can see that <span class="math notranslate nohighlight">\(h(x)\)</span> is the inverse Fourier transform of <span class="math notranslate nohighlight">\((iq \tilde f(x))\)</span>, meaning <span class="math notranslate nohighlight">\(iq \tilde f(x)\)</span> is the Fourier transform of <span class="math notranslate nohighlight">\(h(x)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\tilde h(x) = i q \tilde f(x) .
+\]</div>
+<p>Another approach:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\tilde h(q) &amp; = \frac{1}{2\pi} \int_{-\infty}^\infty dx \dfrac{df}{dx} e^{-iqx} \\
+&amp;= \frac{1}{2\pi} \left[ \int_{-\infty}^\infty dx \frac{d}{dx} \left(f(x) e^{-iqx}\right) - \int_{-\infty}^\infty dx f(x) \frac{d}{dx} e^{-iqx} \right]  \\
 \end{align*}\]</div>
 <p>Let’s assume <span class="math notranslate nohighlight">\(f(x) \rightarrow 0\)</span> as <span class="math notranslate nohighlight">\(x\rightarrow \pm \infty\)</span>:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-       \tilde h(q) &amp;= \frac{1}{2\pi} \left[ {\left. f(x) e^{iqx} \right|^\infty_{-\infty}}  - iq \int_{-\infty}^\infty dx f(x) e^{iqx} \right] \\
-       &amp;= \frac{1}{2\pi} \left[ 0-0 - iq \int_{-\infty}^\infty dx f(x) e^{iqx} \right] \\
-       &amp;= - i q \tilde f(q)
+\tilde h(q) &amp;= \frac{1}{2\pi} \left[ {\left. f(x) e^{-iqx} \right|^\infty_{-\infty}}  - iq \int_{-\infty}^\infty dx f(x) e^{-iqx} \right] \\
+&amp;= \frac{1}{2\pi} \left[ 0-0 + iq \int_{-\infty}^\infty dx f(x) e^{iqx} \right] \\
+&amp;= i q \tilde f(q)
 \end{align*}\]</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
+<div class="important">
 <div class="math notranslate nohighlight">
 \[
-h(x) = \dfrac{df}{dx} \Leftrightarrow \tilde h(q) = -iq \tilde f(q)
+h(x) = \dfrac{df}{dx} \Leftrightarrow \tilde h(q) = iq \tilde f(q)
 \]</div>
-<p>Differentiation in position-space becomes multiplication by <span class="math notranslate nohighlight">\(-iq\)</span> in Fourier space!</p>
-</div>
-<p>We can iterate this result to get the Fourier transform of the <span class="math notranslate nohighlight">\(n\)</span>th derivative: Let <span class="math notranslate nohighlight">\(k(x) = dh/dx = d^2 f/dx^2\)</span>. Then</p>
+<p>Differentiation in position-space becomes multiplication by <span class="math notranslate nohighlight">\(iq\)</span> in Fourier space!</p>
+</div><p>We can iterate this result to get the Fourier transform of the <span class="math notranslate nohighlight">\(n\)</span>th derivative: Let <span class="math notranslate nohighlight">\(k(x) = dh/dx = d^2 f/dx^2\)</span>. Then</p>
 <div class="math notranslate nohighlight">
 \[
-\tilde k(q) = -iq \tilde h(q) = (-iq)^2 \tilde f(q) = -q^2 \tilde f(q)
+\tilde k(q) = iq \tilde h(q) = (iq)^2 \tilde f(q) = -q^2 \tilde f(q)
 \]</div>
 <p>and more generally,</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
+<div class="important">
 <div class="math notranslate nohighlight">
 \[
-\text{ For $p(x) = d^n f/dx^n$, } \quad  \tilde p(q) = (-iq)^n \tilde f(q).
+\text{ For $p(x) = d^n f/dx^n$, } \quad  \tilde p(q) = (iq)^n \tilde f(q).
 \]</div>
-</div>
-<p>This property can be very useful in solving differential equations “in Fourier space”… as long we can compute the inverse Fourier transform!</p>
+</div><p>This property can be very useful in solving differential equations “in Fourier space”… as long we can compute the inverse Fourier transform!</p>
 <div class="section" id="id1">
 <h3>Example 1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="example">
 <p><em>Solve the differential equation <span class="math notranslate nohighlight">\(\dfrac{d^2 f}{dx^2} = - 9 f\)</span>.</em></p>
 <p>Taking the Fourier transforms of both sides, and exploiting linearity:</p>
 <div class="amsmath math notranslate nohighlight">
@@ -537,23 +502,24 @@ h(x) = \dfrac{df}{dx} \Leftrightarrow \tilde h(q) = -iq \tilde f(q)
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 \tilde f(q) &amp;= a \delta(q+3) + b \delta(q-3) \\
-    \Rightarrow f(x) &amp;= \int_{-\infty}^\infty dq \left(a \delta(q+3) + b\delta(q-3) \right) e^{-iqx} = a e^{3ix} + b e^{-3ix} \\
+\Rightarrow f(x) &amp;= \int_{-\infty}^\infty dq \left(a \delta(q+3) + b\delta(q-3) \right) e^{-iqx} = a e^{3ix} + b e^{-3ix} \\
     &amp;= A \cos(3x) + i B \sin(3x)
 \end{align*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(A=a+b\)</span>, <span class="math notranslate nohighlight">\(B=a-b\)</span>.</p>
-</div>
+</div></div>
 <div class="section" id="id2">
 <h3>Example 2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="example">
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
     \frac{df}{dx} &amp;= \cos(3x) \\
-    \Rightarrow -iq \tilde f(q) &amp;= \frac{1}{2} \left[ \delta(q+3) + \delta(q-3) \right] \\
-    \Rightarrow \tilde f(q) &amp;= - \frac{1}{2iq} \left[ \delta(q+3) + \delta(q-3) \right] \\
-    \Rightarrow f(x) &amp;= \int_{-\infty}^\infty dq \left(-\frac{1}{2iq} \left[\delta(q+3) + \delta(q-3) \right] \right) e^{-iqx} \\
-    &amp;= \left(-\frac{1}{2i} \right) \left[ \int_{-\infty}^\infty dq \frac{e^{-iqx}}{q} \delta(q+3) + \int_{-\infty}^\infty dq \frac{e^{-iqx}}{q} \delta(q-3) \right]  \\
-    &amp;= \left(-\frac{1}{2i} \right) \left[ \frac{e^{3ix}}{-3} + \frac{e^{-3ix}}{3} \right] = \frac{1}{3} \sin(3x) \quad \checkmark 
+    \Rightarrow iq \tilde f(q) &amp;= \frac{1}{2} \left[ \delta(q+3) + \delta(q-3) \right] \\
+    \Rightarrow \tilde f(q) &amp;=  \frac{1}{2iq} \left[ \delta(q+3) + \delta(q-3) \right] \\
+    \Rightarrow f(x) &amp;= \int_{-\infty}^\infty dq \left(\frac{1}{2iq} \left[\delta(q+3) + \delta(q-3) \right] \right) e^{iqx} \\
+    &amp;= \left(\frac{1}{2i} \right) \left[ \int_{-\infty}^\infty dq \frac{e^{iqx}}{q} \delta(q+3) + \int_{-\infty}^\infty dq \frac{e^{iqx}}{q} \delta(q-3) \right]  \\
+    &amp;= \left(\frac{1}{2i} \right) \left[ \frac{e^{-3ix}}{-3} + \frac{e^{3ix}}{3} \right] = \frac{1}{3} \sin(3x) \quad \checkmark 
 \end{align*}\]</div>
-</div>
+</div></div>
 </div>
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
